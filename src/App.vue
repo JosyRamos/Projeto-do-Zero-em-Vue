@@ -1,7 +1,8 @@
 <template>
-<div id="app">
-  <img alt="Vue logo" src="./assets/imagem.png">
-  <HelloWorld msg="ola josi"/>
+<div id="app" >
+  <img alt="Vue logo" src="./assets/imagem.png" class="cao" >
+  <HelloWorld msg="Sistema de Cadastros"/>
+  
   </div>
 </template>
 
@@ -14,6 +15,7 @@ export default {
     HelloWorld
   }
 }
+
 </script>
 
 <style>
@@ -25,5 +27,8 @@ export default {
   color: #2c3e50;
   margin-top: 50px;
 
+}
+.cao{
+  width: 15%;
 }
 </style>
