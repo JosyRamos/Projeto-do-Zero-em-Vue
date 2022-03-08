@@ -4,8 +4,7 @@
     <div
       class="alert alert-warning"
       role="alert"
-      v-show="participante.length === 0"
-    >
+      v-show="participante.length === 0">
       Não existem registros de usuários!
     </div>
     <table class="table table-striped" v-show="participante.length > 0">
@@ -38,30 +37,6 @@
         </tr>
       </tbody>
     </table>
-    <div class ="modal fade" id="myModal">
-      <div class="modal-dialog">
-        <div class = "modal-content">
-          <div class = "modal-header">
-           <button class="btn btn-secondary" v-on:click="editar(index)">
-              Editar
-            </button>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <form clss="forme-horizontal" method="POST">
-            <div class="modal-body"></div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn primary">Salvar</button>
-            </div>
-          </form>
-        </div>
-
-      </div>
-
-    </div>
-    <div class="form-group">
       <p>
         Código:
         <input
@@ -86,7 +61,7 @@
         Idade:
         <input
           placeholder="Digite sua idade"
-          type="text"
+          type="number"
           v-model="idade"
           name="idadeParticipante"
           class="form-control"
@@ -107,7 +82,6 @@
       </button>
       <button class="btn btn-warning" v-on:click="salvar()">Salvar</button>
     </div>
-  </div>
 </template>
 <script>
 export default {
@@ -126,11 +100,11 @@ export default {
     };
   },
   methods: {
-    deletar(id) {
-      this.participante.splice(id, 1);
+    deletar(index) {
+    this.participante.splice(index, 1);
     },
-    editar() {
-    
+    editar(index) {
+    return console.log(this.participante[index]);
     },
     adicionar() {
       this.participante.push({
@@ -145,7 +119,7 @@ export default {
        (this.sexo = "");
     },
     salvar() {
-      this.participante({});
+      
     },
   },
 };
@@ -153,3 +127,5 @@ export default {
 <!-- Adicione o atributo "scoped" para limitar o CSS apenas a este componente -->
 <style>
 </style>
+
+
