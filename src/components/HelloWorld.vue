@@ -80,7 +80,7 @@
       <button class="btn btn-success" v-on:click="adicionar()">
         Adicionar Cadastro
       </button>
-      <button class="btn btn-warning" v-on:click="salvar()">Salvar</button>
+      <button class="btn btn-warning" v-on:click="salvar(index)">Salvar</button>
     </div>
 </template>
 <script>
@@ -96,7 +96,7 @@ export default {
       id: "",
       nome: "",
       idade: "",
-      sexo: "",
+      sexo: ""
     };
   },
   methods: {
@@ -104,23 +104,30 @@ export default {
     this.participante.splice(index, 1);
     },
     editar(index) {
-    return console.log(this.participante[index]);
+      
+     (this.id = this.participante[index].id),
+      (this.nome = this.participante[index].nome),
+      (this.idade = this.participante[index].idade),
+      (this.sexo = this.participante[index].sexo) 
     },
+    salvar() {
+    
+    
+    },
+
     adicionar() {
       this.participante.push({
         id: this.id,
         nome: this.nome,
         idade: this.idade,
-        sexo: this.sexo,
+        sexo: this.sexo
       });
       (this.id = ""),
        (this.nome = ""), 
        (this.idade = ""), 
        (this.sexo = "");
     },
-    salvar() {
-      
-    },
+  
   },
 };
 </script>
