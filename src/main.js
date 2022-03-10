@@ -1,8 +1,11 @@
 import { createApp } from 'vue'
-//import VueRouter from 'vue-router';
+//import Vue from 'vue'
+//import VueRouter from 'vue-router'
 import App from './App.vue'
+//import { createVuelidate } from 'vuelidate'
+//import  Vuelidate from 'vuelidate'
 
-//VueRouter.Use(VueRouter);
+//Vue.use(Vuelidate)
 
-
+//createVuelidate(Vuelidate).mount('#vuelidate')
 createApp(App).mount('#app')

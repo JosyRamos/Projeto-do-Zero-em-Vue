@@ -1,7 +1,6 @@
 <template>
 <div id="app" >
-  <img alt="Vue logo" src="./assets/imagem.png" class="cao" >
-  <HelloWorld msg="Sistema de Cadastros"/>
+  <HelloWorld msg="Sistema de Cadastro"/>
   
   </div>
 </template>
@@ -19,6 +18,9 @@ export default {
 </script>
 
 <style>
+body{
+ background-image:url('./assets/imagem8.jpg');
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,6 +31,8 @@ export default {
 
 }
 .cao{
-  width: 15%;
+  width: 10%;
+  height: 10%;
+ 
 }
 </style>

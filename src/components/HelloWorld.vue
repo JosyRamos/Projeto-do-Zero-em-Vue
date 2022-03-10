@@ -1,22 +1,24 @@
 <template>
   <div class="container-fluid">
- 
+    
     <h1>{{ msg }}</h1>
     <div
-      class="alert alert-warning"
+      class="alert alert-warning col-md-10"
       role="alert"
       v-show="participante.length === 0"
     >
       Não existem registros de usuários!
     </div>
+    
     <p>
-      Nome:
+      Nome
       <input
         placeholder="Digite seu nome"
         type="text"
         v-model="nome"
         name="nomeParticipante"
-        class="form-control"
+        class="form-group col-md-11"
+      
       />
     </p>
     <p>
@@ -26,7 +28,7 @@
         type="number"
         v-model="idade"
         name="idadeParticipante"
-        class="form-control"
+        class="form-group col-md-11"
       />
     </p>
     <p>
@@ -36,13 +38,19 @@
         type="text"
         v-model="sexo"
         name="sexoParticipante"
-        class="form-control"
+        class="form-group col-md-11"
       />
     </p>
-    <button class="btn btn-success"  v-on:click="adicionar(index)">
+   
+    <div>
+    <button class="btn btn-success"  v-on:click="adicionar(index)" >
       Adicionar Cadastro
     </button>
-    <button class="btn btn-warning" v-on:click="salvar(index)">Salvar</button>
+    </div>
+    <div  v-if="this.participante != ''">
+    <button  class="btn btn-warning" v-on:click="salvar(index)">Salvar</button>
+    </div>
+  
     <table class="table table-striped" v-show="participante.length > 0">
       <thead>
         <tr>
@@ -63,7 +71,7 @@
           <td>{{ participantes.idade }}</td>
           <td>{{ participantes.sexo }}</td>
           <td>
-            <button class="btn btn-danger" v-on:click="deletar(index)">
+            <button class="btn btn-danger"  v-on:click="deletar(index)">
               Remover
             </button>
             <button class="btn btn-secondary"  v-on:click="editar(index)">
@@ -73,7 +81,6 @@
         </tr>
       </tbody>
     </table>
-    
   </div>
 </template>
 <script>
@@ -92,10 +99,19 @@ export default {
       sexo: "",
       botao: "",
       indice: "",
+      desabilitar:true,
+      habilitar:false,
     
     };
   },
   methods: {
+    enviarFormulario(){
+     
+      if(this.participante == ""){
+        this.adcionar();
+      }
+     
+    },
     deletar(index) {
       this.participante.splice(index, 1);
     },
@@ -116,6 +132,7 @@ export default {
       }
       this.salvandoInfo();
       this.renderizar();
+
     },
     salvandoInfo() {
       (this.participante[this.indice].id = this.id),
@@ -142,7 +159,8 @@ export default {
 };
 </script>
 <!-- Adicione o atributo "scoped" para limitar o CSS apenas a este componente -->
-<style scoped>
+<style>
+
 
 </style>
 
